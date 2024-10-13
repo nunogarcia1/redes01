@@ -1,0 +1,91 @@
+name: tp1
+
+topology:
+  kinds:
+    srl:
+      image: ghcr.io/nokia/srlinux:23.10.2
+    linux:
+      image: alpine:latest
+    vr-ros:
+      image: docker.io/iparchitechs/chr:long-term    
+
+  nodes:
+
+    R0:
+      kind: srl
+      ports:
+        - 2220:22  
+
+    R1:
+      kind: srl
+      type: ixrd2
+      ports:
+        - 2221:22
+
+    R2:
+      kind: srl
+      ports:
+        - 2222:22  
+
+    PC0:
+      kind: linux
+      ports:
+        - 2223:22  
+
+    Laptop0:
+      kind: linux
+      ports:
+        - 2224:22
+
+    PC1:
+      kind: linux
+      ports:
+        - 2225:22  
+
+    Laptop1:
+      kind: linux
+      ports:
+        - 2226:22
+
+    micro_DHCP:
+      kind: vr-ros
+      startup-config: ./config/micro_DHCP.txt  
+      ports:
+        - 2227:22 
+
+    micro_Web:
+      kind: vr-ros
+      ports:
+        - 2228:22
+
+    micro_DNS:
+      kind: vr-ros
+      ports:
+        - 2229:22    
+
+    Sw1:
+      kind: bridge
+
+    Sw2:
+      kind: bridge
+
+    Sw3:
+      kind: bridge
+
+  links:
+    - endpoints: ["PC0:eth1", "Sw1:eth12"]
+    - endpoints: ["Laptop0:eth1", "Sw1:eth13"]
+    - endpoints: ["Sw1:eth11", "R1:e1-1"]
+
+    - endpoints: ["PC1:eth1", "Sw2:eth22"]
+    - endpoints: ["Laptop1:eth1", "Sw2:eth23"]
+    - endpoints: ["Sw2:eth21", "R1:e1-2"]
+
+    - endpoints: ["R1:e1-3", "R0:e1-1"]
+    - endpoints: ["R1:e1-4", "R2:e1-1"]
+    - endpoints: ["R0:e1-2", "R2:e1-2"]
+
+    - endpoints: ["R2:e1-3", "Sw3:eth31"]
+    - endpoints: ["Sw3:eth32", "micro_DHCP:eth1"]
+    - endpoints: ["Sw3:eth33", "micro_Web:eth1"]
+    - endpoints: ["Sw3:eth34", "micro_DNS:eth1"]
