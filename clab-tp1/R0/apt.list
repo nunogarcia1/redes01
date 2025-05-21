@@ -1,1 +1,1 @@
-deb [trusted=yes] https://apt.fury.io/srlinux/ /
+deb [trusted=yes] https://srlinux.fury.site/apt/ /

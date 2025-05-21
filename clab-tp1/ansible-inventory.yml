@@ -6,8 +6,6 @@ all:
     ansible_httpapi_use_proxy: false
   children:
     bridge:
-      vars:
-        # ansible_connection: set ansible_connection variable if required
       hosts:
         clab-tp1-Sw1:
           ansible_host: 
@@ -16,17 +14,15 @@ all:
         clab-tp1-Sw3:
           ansible_host: 
     linux:
-      vars:
-        # ansible_connection: set ansible_connection variable if required
       hosts:
         clab-tp1-Laptop0:
-          ansible_host: 172.20.20.8
+          ansible_host: 172.20.20.11
         clab-tp1-Laptop1:
-          ansible_host: 172.20.20.4
+          ansible_host: 172.20.20.5
         clab-tp1-PC0:
-          ansible_host: 172.20.20.3
+          ansible_host: 172.20.20.8
         clab-tp1-PC1:
-          ansible_host: 172.20.20.6
+          ansible_host: 172.20.20.10
     srl:
       vars:
         ansible_network_os: nokia.srlinux.srlinux
@@ -37,11 +33,11 @@ all:
         ansible_password: NokiaSrl1!
       hosts:
         clab-tp1-R0:
-          ansible_host: 172.20.20.9
+          ansible_host: 172.20.20.4
         clab-tp1-R1:
-          ansible_host: 172.20.20.7
+          ansible_host: 172.20.20.2
         clab-tp1-R2:
-          ansible_host: 172.20.20.5
+          ansible_host: 172.20.20.3
     vr-ros:
       vars:
         # ansible_connection: set ansible_connection variable if required
@@ -49,8 +45,8 @@ all:
         ansible_password: admin
       hosts:
         clab-tp1-micro_DHCP:
-          ansible_host: 172.20.20.10
+          ansible_host: 172.20.20.9
         clab-tp1-micro_DNS:
-          ansible_host: 172.20.20.2
+          ansible_host: 172.20.20.6
         clab-tp1-micro_Web:
-          ansible_host: 172.20.20.11
+          ansible_host: 172.20.20.7

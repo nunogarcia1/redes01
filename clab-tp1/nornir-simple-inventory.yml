@@ -1,0 +1,66 @@
+---
+Sw1:
+    username: 
+    password: 
+    platform: bridge
+    hostname: 
+Sw2:
+    username: 
+    password: 
+    platform: bridge
+    hostname: 
+Sw3:
+    username: 
+    password: 
+    platform: bridge
+    hostname: 
+Laptop0:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.11
+Laptop1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+PC0:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.8
+PC1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.10
+R0:
+    username: admin
+    password: NokiaSrl1!
+    platform: srl
+    hostname: 172.20.20.4
+R1:
+    username: admin
+    password: NokiaSrl1!
+    platform: srl
+    hostname: 172.20.20.2
+R2:
+    username: admin
+    password: NokiaSrl1!
+    platform: srl
+    hostname: 172.20.20.3
+micro_DHCP:
+    username: admin
+    password: admin
+    platform: vr-ros
+    hostname: 172.20.20.9
+micro_DNS:
+    username: admin
+    password: admin
+    platform: vr-ros
+    hostname: 172.20.20.6
+micro_Web:
+    username: admin
+    password: admin
+    platform: vr-ros
+    hostname: 172.20.20.7
